@@ -1,0 +1,30 @@
+{
+  "name": "sq-localization",
+  "version": "0.0.1",
+  "description": "Extremely simple React localization",
+  "main": "build/index.js",
+  "peerDependencies": {
+    "react": "^16.4"
+  },
+  "dependencies": {
+    "react": "^16.4",
+    "webpack": "^4.16.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": {
+    "name": "Trevor Crupi",
+    "email": "tcrupi@stratospherequality.com"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  }
+}
