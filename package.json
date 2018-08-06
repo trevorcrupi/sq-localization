@@ -1,7 +1,7 @@
 {
   "name": "sq-localization",
   "version": "0.0.1",
-  "description": "Extremely simple React localization",
+  "description": "Extremely simple React localization focused on non-intrusive integration in your app.",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.4"
@@ -17,7 +17,7 @@
   },
   "author": {
     "name": "Trevor Crupi",
-    "email": "tcrupi@stratospherequality.com"
+    "email": "trevor.crupi27@gmail.com"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
