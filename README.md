@@ -14,7 +14,7 @@ I was tasked with adding localization to an app midway through the application c
 
 By design, this package is incredibly easy to set up and use.
 
-Before your .render, call the init function and point to your language object:
+Before your .render in your index file, call the init function and point to your language object:
 
 ```js
 import { Register } from 'sq-localization';
@@ -35,7 +35,7 @@ Register.init({
 })
 ```
 
-This is used by the <Text /> component to decide what to dynamically render. This is all that's needed to get up and running with simple localization.
+This is used by the <Text /> component to decide what to dynamically render. This is all that's needed to get up and running with simple localization. I recommend separating the language objects into separate .js files and importing them for better separation and readability.  
 
 To start using localization, just use the <Text /> component as follows:
 
