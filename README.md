@@ -16,7 +16,7 @@ By design, this package is incredibly easy to set up and use.
 
 Before your .render, call the init function and point to your language object:
 
-`
+```js
 import { Register } from 'sq-localization';
 
 Register.init({
@@ -33,13 +33,13 @@ Register.init({
     }
   }
 })
-`
+```
 
 This is used by the <Text /> component to decide what to dynamically render. This is all that's needed to get up and running with simple localization.
 
 To start using localization, just use the <Text /> component as follows:
 
-`
+```js
 import { Text } from 'sq-localization';
 
 class TestComponent extends React.Component {
@@ -49,11 +49,11 @@ class TestComponent extends React.Component {
     );
   }
 }
-`
+```
 
 This would output "Hello, World!". In order to switch languages, just change the 'lang' prop to one of your defined language strings in the init function. For example:
 
-`
+```js
 import { Text } from 'sq-localization';
 
 class TestComponent extends React.Component {
@@ -63,7 +63,7 @@ class TestComponent extends React.Component {
     );
   }
 }
-`
+```
 
 Would output 'Bonjour!'.
 
