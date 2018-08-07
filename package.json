@@ -1,6 +1,6 @@
 {
   "name": "sq-localization",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Extremely simple React localization focused on non-intrusive integration in your app.",
   "main": "build/index.js",
   "peerDependencies": {
@@ -29,13 +29,13 @@
     "webpack-cli": "^3.1.0"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/trevorcrupi/sq-localization"
-    },
-    "keywords": [
-      "node",
-      "react",
-      "localization"
-    ],
-    "license": "MIT"
+    "type": "git",
+    "url": "https://github.com/trevorcrupi/sq-localization"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "localization"
+  ],
+  "license": "MIT"
 }

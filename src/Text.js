@@ -8,6 +8,7 @@ class Text extends React.Component {
     this.originalText = props.text;
     this.keys = this.keys(props.text);
     this.lang = props.lang;
+    this.debug = props.debug || false;
   }
 
   keys(text) {
@@ -30,8 +31,17 @@ class Text extends React.Component {
       throw new Error(`${this.originalText} is not in your language object tree.`);
     }
 
+    if(this.debug) {
+      console.log(`--------------------------------------------------------------------------------------------------------------------------------`);
+      console.log(`Lang: ${this.lang}`);
+      console.log(`Text Prop Received: ${this.originalText}`);
+      console.log(`Text that sq-localization found: ${text}`);
+      console.log(`(You are seeing this because you have included the 'debug' prop in your <Text /> component. Change that if you don't like this.)`);
+      console.log('--------------------------------------------------------------------------------------------------------------------------------');
+    }
+
     return (
-      <span>{text}</span>
+      <div>{text}</div>
     );
   }
 }
