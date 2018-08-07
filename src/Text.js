@@ -6,7 +6,7 @@ class Text extends React.Component {
   constructor(props) {
     super(props);
     this.originalText = props.text;
-    this.keys = this.keys(props.text);
+    this.key = props.text;
     this.lang = props.lang;
     this.debug = props.debug || false;
   }
@@ -17,9 +17,10 @@ class Text extends React.Component {
 
   find(text) {
       let current = text;
-      while(this.keys.length) {
+      let splitKeys = this.keys(this.key);
+      while(splitKeys.length) {
           if(typeof current !== 'object') return undefined;
-          current = current[this.keys.shift()];
+          current = current[splitKeys.shift()];
       }
       return current;
   }
@@ -35,7 +36,7 @@ class Text extends React.Component {
       console.log(`--------------------------------------------------------------------------------------------------------------------------------`);
       console.log(`Lang: ${this.lang}`);
       console.log(`Text Prop Received: ${this.originalText}`);
-      console.log(`Text that sq-localization found: ${text}`);
+      console.log(`Text that sq-localization found: ${JSON.stringify(text)}`);
       console.log(`(You are seeing this because you have included the 'debug' prop in your <Text /> component. Change that if you don't like this.)`);
       console.log('--------------------------------------------------------------------------------------------------------------------------------');
     }

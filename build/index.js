@@ -148,7 +148,7 @@ var Text = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).call(this, props));
 
     _this.originalText = props.text;
-    _this.keys = _this.keys(props.text);
+    _this.key = props.text;
     _this.lang = props.lang;
     _this.debug = props.debug || false;
     return _this;
@@ -163,9 +163,10 @@ var Text = function (_React$Component) {
     key: 'find',
     value: function find(text) {
       var current = text;
-      while (this.keys.length) {
+      var splitKeys = this.keys(this.key);
+      while (splitKeys.length) {
         if ((typeof current === 'undefined' ? 'undefined' : _typeof(current)) !== 'object') return undefined;
-        current = current[this.keys.shift()];
+        current = current[splitKeys.shift()];
       }
       return current;
     }
@@ -182,7 +183,7 @@ var Text = function (_React$Component) {
         console.log('--------------------------------------------------------------------------------------------------------------------------------');
         console.log('Lang: ' + this.lang);
         console.log('Text Prop Received: ' + this.originalText);
-        console.log('Text that sq-localization found: ' + text);
+        console.log('Text that sq-localization found: ' + JSON.stringify(text));
         console.log('(You are seeing this because you have included the \'debug\' prop in your <Text /> component. Change that if you don\'t like this.)');
         console.log('--------------------------------------------------------------------------------------------------------------------------------');
       }
