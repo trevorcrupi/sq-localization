@@ -150,6 +150,7 @@ var Text = function (_React$Component) {
     _this.originalText = props.text;
     _this.keys = _this.keys(props.text);
     _this.lang = props.lang;
+    _this.debug = props.debug || false;
     return _this;
   }
 
@@ -177,8 +178,17 @@ var Text = function (_React$Component) {
         throw new Error(this.originalText + ' is not in your language object tree.');
       }
 
+      if (this.debug) {
+        console.log('--------------------------------------------------------------------------------------------------------------------------------');
+        console.log('Lang: ' + this.lang);
+        console.log('Text Prop Received: ' + this.originalText);
+        console.log('Text that sq-localization found: ' + text);
+        console.log('(You are seeing this because you have included the \'debug\' prop in your <Text /> component. Change that if you don\'t like this.)');
+        console.log('--------------------------------------------------------------------------------------------------------------------------------');
+      }
+
       return _react2.default.createElement(
-        'span',
+        'div',
         null,
         text
       );
