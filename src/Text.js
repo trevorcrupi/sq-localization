@@ -1,5 +1,6 @@
 import React from 'react';
 import { Register } from './';
+import ReactMarkdown from 'react-markdown';
 
 class Text extends React.Component {
 
@@ -9,6 +10,9 @@ class Text extends React.Component {
     this.key = props.text;
     this.lang = props.lang;
     this.debug = props.debug || false;
+    this.debugMap = [];
+    this.props = props;
+    this.className = props.className || this.key;
   }
 
   keys(text) {
@@ -25,24 +29,43 @@ class Text extends React.Component {
       return current;
   }
 
+  template(tpl, data) {
+      const re = /<%([^%>]+)?%>/g;
+      let match = [];
+      this.debugMap['matches'] = {
+        description: '\'Matches\' are the objects associated with the mini templating engine.',
+        value: []
+      };
+      while(match = re.exec(tpl)) {
+          // console.log(match);
+
+          if(data[match[1]] === undefined) {
+            throw new Error('No key found for: ' + match[1]);
+          }
+
+          tpl = tpl.replace(match[0], data[match[1]])
+      }
+      return tpl;
+  }
+
+  setLang(lang) {
+    this.lang = lang;
+
+    return this;
+  }
+
   render() {
-    const text = this.find(Register.config[this.lang]);
+    let text = this.setLang(this.props.lang).find(Register.config[this.lang]);
 
     if(!text) {
       throw new Error(`${this.originalText} is not in your language object tree.`);
     }
-
-    if(this.debug) {
-      console.log(`--------------------------------------------------------------------------------------------------------------------------------`);
-      console.log(`Lang: ${this.lang}`);
-      console.log(`Text Prop Received: ${this.originalText}`);
-      console.log(`Text that sq-localization found: ${JSON.stringify(text)}`);
-      console.log(`(You are seeing this because you have included the 'debug' prop in your <Text /> component. Change that if you don't like this.)`);
-      console.log('--------------------------------------------------------------------------------------------------------------------------------');
-    }
+    const display = this.template(text, this.props);
 
     return (
-      <div>{text}</div>
+      <span>
+       <ReactMarkdown className={this.className} source={display} />
+      </span>
     );
   }
 }

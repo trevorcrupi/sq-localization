@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "react": "^16.4",
+    "react-markdown": "^4.0.1",
     "webpack": "^4.16.4"
   },
   "scripts": {
