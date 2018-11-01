@@ -69,6 +69,62 @@ Would output 'Bonjour!'.
 
 An error will be thrown if the language or the text is not found.
 
+### Templating
+
+This localization component now supports templating! Use templating in your language tree as follows:
+
+```js
+'en': {
+  'greeting': {
+    'formal': 'Hello <%name%>!',
+    'informal': 'What up <%name%?>! Ya boi is <%age%> years old.'
+  }
+},
+'fr': {
+  'greeting': {
+    'formal': 'Bonjour <%name%>!',
+    'informal': 'Salut <%name%>! J\'ai <%age%> ans! Yeet!'
+  }
+}
+```
+
+In order to pass in values, you guessed it, you pass in props into your component!
+
+```js
+import { Text } from 'sq-localization';
+
+
+// other sh*t
+<Text lang='en' text='greeting.informal' name='Charles Darwin' age='209' />
+```
+
+This will output "What up Charles Darwin! Ya boi is 209 years old."
+
+Note, if you put a template into your language tree and you DON'T include that in the component (i.e., you don't supply the 'Charles Darwin' or the '209') then the component will throw an error and you are an idiot!
+
+### Markdown
+
+This localization component now supports markdown! Use markdown in your language tree as follows:
+
+```js
+'en': {
+  'greeting': {
+    'formal': 'Hello **<%name%>**!',
+    'informal': 'What up *<%name%?>*! Ya boi is <%age%> years old.',
+    'link': '[Check me out! I\'m a link!](https://stratospherequality.com/)'
+  }
+},
+'fr': {
+  'greeting': {
+    'formal': 'Bonjour <%name%>!',
+    'informal': 'Salut <%name%>! J\'ai <%age%> ans! Yeet!',
+    'link': '[Je veux être un link!](https://stratospherequality.com/)'
+  }
+}
+```
+
+Then use your component as originally designed and your things will now be markdowned! Go nuts!
+
 ### Redux
 
 Again, designed to be as simple as possible. Just keep the value for the language in your state and pass it down the tree to the text component. The text component will re-render on a state change.

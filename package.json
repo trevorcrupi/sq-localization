@@ -1,6 +1,6 @@
 {
   "name": "sq-localization",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Extremely simple React localization focused on non-intrusive integration in your app.",
   "main": "build/index.js",
   "peerDependencies": {
