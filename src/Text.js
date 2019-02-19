@@ -63,9 +63,9 @@ class Text extends React.Component {
     const display = this.template(text, this.props);
 
     return (
-      <span>
+      <React.Fragment>
        <ReactMarkdown className={this.className} source={display} />
-      </span>
+      </React.Fragment>
     );
   }
 }

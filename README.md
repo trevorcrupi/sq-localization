@@ -123,7 +123,7 @@ This localization component now supports markdown! Use markdown in your language
 }
 ```
 
-Then use your component as originally designed and your things will now be markdowned! Go nuts!
+Then use your component as originally designed and your things will now be markdowned! Go nut
 
 ### Redux
 

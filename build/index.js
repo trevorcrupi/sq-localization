@@ -215,7 +215,7 @@ var Text = function (_React$Component) {
       var display = this.template(text, this.props);
 
       return _react2.default.createElement(
-        'span',
+        _react2.default.Fragment,
         null,
         _react2.default.createElement(_reactMarkdown2.default, { className: this.className, source: display })
       );
